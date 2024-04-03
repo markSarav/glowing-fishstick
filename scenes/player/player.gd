@@ -45,7 +45,6 @@ func _process(_delta):
 		var pos = $LaserStartPositions.get_children()[0]
 		#grenade direction when spawned
 		
-		
 		grenade_timer.start()
 		grenade_fired.emit(pos.global_position,player_direction)
 		can_fire_grenade = false
