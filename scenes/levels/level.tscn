@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cjtngkldbp6i2"]
+[gd_scene load_steps=20 format=3 uid="uid://cjtngkldbp6i2"]
 
 [ext_resource type="PackedScene" uid="uid://mdakt0s4k0o5" path="res://scenes/player/player.tscn" id="1_pkpqa"]
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_twtw3"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://22ocyt5eiqx7" path="res://scenes/objects/light_fan_animation.tscn" id="12_62dh7"]
 [ext_resource type="PackedScene" uid="uid://bcr64hc3qckrm" path="res://scenes/objects/house.tscn" id="13_fyfmg"]
 [ext_resource type="PackedScene" uid="uid://dr6gtau4dw3h3" path="res://scenes/objects/steam_vent.tscn" id="14_jdfq0"]
+[ext_resource type="PackedScene" uid="uid://d3dmbvrc0mw7t" path="res://scenes/enemies/drone.tscn" id="16_5eaha"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w742w"]
 texture = ExtResource("4_nv5sk")
@@ -113,11 +114,19 @@ position = Vector2(0, -1056)
 [node name="Player" parent="." instance=ExtResource("1_pkpqa")]
 position = Vector2(0, 600)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
+
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="SteamVent" parent="." instance=ExtResource("14_jdfq0")]
 position = Vector2(-885, 0)
 
+[node name="Drone" parent="." instance=ExtResource("16_5eaha")]
+
+[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
+[connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
 [connection signal="player_entered_body" from="Gate" to="." method="_on_gate_player_entered_body"]
 [connection signal="player_exited_body" from="Gate" to="." method="_on_gate_player_exited_body"]
 [connection signal="grenade_fired" from="Player" to="." method="_on_player_grenade_fired"]
