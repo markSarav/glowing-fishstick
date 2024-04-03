@@ -1,4 +1,5 @@
 extends Node2D
+class_name LevelParent
 
 #load laser scene to be able to create a laser object on the level
 var laser_scene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
@@ -32,12 +33,6 @@ func _on_player_grenade_fired(pos,direction):
 	$Projectiles.add_child(grenade)
 	print('shoot grenade')
 
-func _on_gate_player_entered_body():
-	var tween = create_tween()
-	tween.tween_property($Player,"speed",0,.5)
-
-func _on_gate_player_exited_body():
-	print('player has exited area')
 
 #zoom in on player when house entered
 #tweens are faster ways of creating smaller animations w/o using the animation player node
