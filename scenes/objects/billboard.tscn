@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://crk6c7xbdanb4"]
+
+[ext_resource type="PackedScene" uid="uid://bt6foci0lvaog" path="res://scenes/objects/item_container.tscn" id="1_rn1km"]
+[ext_resource type="Script" path="res://Billboard.gd" id="2_06fp8"]
+[ext_resource type="Texture2D" uid="uid://bwt5jduygfffm" path="res://graphics/objects/Billboard.png" id="3_pmwf1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2x8vp"]
+size = Vector2(1226, 46)
+
+[node name="Billboard" instance=ExtResource("1_rn1km")]
+script = ExtResource("2_06fp8")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_2x8vp")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(0, 14)
+texture = ExtResource("3_pmwf1")
