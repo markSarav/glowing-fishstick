@@ -17,6 +17,7 @@ var can_fire_grenade: bool = true
 var speed: int = max_speed
 
 
+
 func _process(_delta):
 	#get the input mapping from project settings assign them to a vector2 variable
 	var direction: Vector2 = Input.get_vector("left","right","up","down")
@@ -32,7 +33,9 @@ func _process(_delta):
 	var player_direction = (get_global_mouse_position() - position).normalized()
 	
 	#fire laser
-	if Input.is_action_pressed("primary action") && can_fire_laser:
+	if Input.is_action_pressed("primary action") and can_fire_laser and Globals.laser_amount > 0:
+		#reduce the laser ammunition by 1
+		Globals.laser_amount -= 1
 		#randomly select a marker 2d for the laser start
 		var laser_marker = $LaserStartPositions.get_children()
 		var pos = laser_marker[randi() % laser_marker.size()]
@@ -42,7 +45,9 @@ func _process(_delta):
 		can_fire_laser = false
 	
 	#fire grenade
-	if Input.is_action_pressed("secondary action") && can_fire_grenade:
+	if Input.is_action_pressed("secondary action") and can_fire_grenade and Globals.grenade_amount > 0:
+		#reduce the grenade ammunition by 1
+		Globals.grenade_amount -= 1
 		#grenade spawning position
 		var pos = $LaserStartPositions.get_children()[0]
 		#grenade direction when spawned

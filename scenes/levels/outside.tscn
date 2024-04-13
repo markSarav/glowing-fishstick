@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://chc4fs11tpsf4"]
+[gd_scene load_steps=18 format=3 uid="uid://chc4fs11tpsf4"]
 
 [ext_resource type="PackedScene" uid="uid://cjtngkldbp6i2" path="res://scenes/levels/level.tscn" id="1_we8py"]
 [ext_resource type="Texture2D" uid="uid://bcvl7fbkxnens" path="res://graphics/ground/stones.png" id="2_larmx"]
@@ -14,8 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bcr64hc3qckrm" path="res://scenes/objects/house.tscn" id="11_qyidi"]
 [ext_resource type="PackedScene" uid="uid://22ocyt5eiqx7" path="res://scenes/objects/light_fan_animation.tscn" id="12_01twt"]
 [ext_resource type="PackedScene" uid="uid://bk7qgl5sb8lcg" path="res://scenes/objects/gate.tscn" id="13_07jw0"]
-[ext_resource type="PackedScene" uid="uid://cfan1ldkx1fxb" path="res://scenes/objects/toilet.tscn" id="15_daxae"]
-[ext_resource type="PackedScene" uid="uid://c5lecs6r60ll2" path="res://scenes/objects/box.tscn" id="16_mb12v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w742w"]
 texture = ExtResource("3_ry03a")
@@ -108,12 +106,6 @@ position = Vector2(-552, 1904)
 
 [node name="Gate" parent="." index="1" instance=ExtResource("13_07jw0")]
 position = Vector2(0, -1056)
-
-[node name="Toilet" parent="." index="4" instance=ExtResource("15_daxae")]
-position = Vector2(-885, 314)
-
-[node name="Box" parent="." index="5" instance=ExtResource("16_mb12v")]
-position = Vector2(-885, 620)
 
 [connection signal="player_entered_body" from="Gate" to="." method="_on_gate_player_entered_body"]
 [connection signal="player_exited_body" from="Gate" to="." method="_on_gate_player_exited_body"]

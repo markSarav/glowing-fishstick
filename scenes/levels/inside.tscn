@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bcvo571un1qfc"]
+[gd_scene load_steps=17 format=3 uid="uid://bcvo571un1qfc"]
 
 [ext_resource type="PackedScene" uid="uid://cjtngkldbp6i2" path="res://scenes/levels/level.tscn" id="1_4x7f5"]
 [ext_resource type="TileSet" uid="uid://bfdsiu08o5eji" path="res://scenes/objects/house.tres" id="2_7jm1o"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cfan1ldkx1fxb" path="res://scenes/objects/toilet.tscn" id="3_1e548"]
 [ext_resource type="Texture2D" uid="uid://b3bn8dw37xnwk" path="res://graphics/lights/overlays/lattice.png" id="3_8qe4m"]
 [ext_resource type="PackedScene" uid="uid://22ocyt5eiqx7" path="res://scenes/objects/light_fan_animation.tscn" id="3_170rg"]
+[ext_resource type="PackedScene" uid="uid://chc4fs11tpsf4" path="res://scenes/levels/outside.tscn" id="3_rlrw1"]
 [ext_resource type="Texture2D" uid="uid://b44ih3g2oxynm" path="res://graphics/lights/textures/circle.png" id="4_vvqdl"]
 [ext_resource type="PackedScene" uid="uid://bpkj5ex4j7bb3" path="res://scenes/objects/bed.tscn" id="5_5w8du"]
 [ext_resource type="PackedScene" uid="uid://3f8defaie17m" path="res://scenes/objects/simple_light.tscn" id="5_uxisw"]
@@ -20,6 +21,7 @@ size = Vector2(338, 342)
 
 [node name="inside" instance=ExtResource("1_4x7f5")]
 script = ExtResource("2_61i4j")
+packed_scene_transition = ExtResource("3_rlrw1")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="0"]
 color = Color(0.34902, 0.458824, 0.462745, 1)

@@ -21,6 +21,7 @@ func _on_player_laser_fired(pos,direction):
 
 	#add laser node to scene as child of the level
 	$Projectiles.add_child(laser)
+	$UI.update_laser_text()
 	print('shoot laser')
 
 func _on_player_grenade_fired(pos,direction):
@@ -31,6 +32,7 @@ func _on_player_grenade_fired(pos,direction):
 	grenade.position = pos
 	grenade.linear_velocity = direction * grenade.speed
 	$Projectiles.add_child(grenade)
+	$UI.update_grenade_text()
 	print('shoot grenade')
 
 
