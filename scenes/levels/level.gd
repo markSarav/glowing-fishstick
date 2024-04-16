@@ -6,7 +6,6 @@ var laser_scene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
 #do the same with the grenade scene
 var grenade_scene: PackedScene = preload("res://scenes/projectiles/grenade.tscn")
 
-
 #custom signal from player node emitted when primary action is pressed (laser has been fired)
 func _on_player_laser_fired(pos,direction):
 	#instantiate preloaded scene as a node
@@ -22,6 +21,7 @@ func _on_player_laser_fired(pos,direction):
 	#add laser node to scene as child of the level
 	$Projectiles.add_child(laser)
 	$UI.update_laser_text()
+	#$UI.update_laser_color()
 	print('shoot laser')
 
 func _on_player_grenade_fired(pos,direction):
@@ -33,8 +33,8 @@ func _on_player_grenade_fired(pos,direction):
 	grenade.linear_velocity = direction * grenade.speed
 	$Projectiles.add_child(grenade)
 	$UI.update_grenade_text()
+	#$UI.update_grenade_color()
 	print('shoot grenade')
-
 
 #zoom in on player when house entered
 #tweens are faster ways of creating smaller animations w/o using the animation player node
