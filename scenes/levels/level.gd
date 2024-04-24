@@ -6,6 +6,20 @@ var laser_scene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
 #do the same with the grenade scene
 var grenade_scene: PackedScene = preload("res://scenes/projectiles/grenade.tscn")
 
+var item_scene: PackedScene = preload("res://scenes/items/item.tscn")
+
+
+func _ready():
+	for container in get_tree().get_nodes_in_group("Container"):
+		container.connect("open", _on_container_opened)
+
+func _on_container_opened(pos, direction):
+	var item = item_scene.instantiate()
+	item.position = pos
+	item.direction = direction
+	$Items.call_deferred("add_child",item)
+	print("container opened")
+
 #custom signal from player node emitted when primary action is pressed (laser has been fired)
 func _on_player_laser_fired(pos,direction):
 	#instantiate preloaded scene as a node

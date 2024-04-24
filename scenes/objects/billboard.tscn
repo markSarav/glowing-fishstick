@@ -13,6 +13,9 @@ script = ExtResource("2_06fp8")
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("RectangleShape2D_2x8vp")
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="BaseSprite" parent="." index="1"]
 position = Vector2(0, 14)
 texture = ExtResource("3_pmwf1")
+
+[node name="LidSprite" parent="." index="2"]
+visible = false

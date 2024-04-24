@@ -298,19 +298,19 @@ position = Vector2(-2044, -6347)
 scale = Vector2(10, 10)
 texture = ExtResource("12_juwdk")
 
-[node name="Player" parent="." index="4"]
-position = Vector2(838, -628)
-
-[node name="PointLight2D" type="PointLight2D" parent="Player" index="8"]
-texture = ExtResource("4_vvqdl")
-texture_scale = 3.0
-
 [node name="ExitGateArea" type="Area2D" parent="." index="5"]
 position = Vector2(970, -207)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
 position = Vector2(9, 9)
 shape = SubResource("RectangleShape2D_gobrn")
+
+[node name="Player" parent="." index="6"]
+position = Vector2(838, -628)
+
+[node name="PointLight2D" type="PointLight2D" parent="Player" index="8"]
+texture = ExtResource("4_vvqdl")
+texture_scale = 3.0
 
 [node name="Item" parent="." index="7" instance=ExtResource("16_ctgtm")]
 position = Vector2(400, -457)

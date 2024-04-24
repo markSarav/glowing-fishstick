@@ -14,9 +14,9 @@ script = ExtResource("2_hymga")
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("RectangleShape2D_6urek")
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="BaseSprite" parent="." index="1"]
 texture = ExtResource("1_l7iju")
 
-[node name="PillowLarge" type="Sprite2D" parent="." index="2"]
-position = Vector2(237, 2)
+[node name="LidSprite" parent="." index="2"]
+position = Vector2(229, 0)
 texture = ExtResource("4_5c1k4")
