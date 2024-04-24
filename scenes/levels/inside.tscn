@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bcvo571un1qfc"]
+[gd_scene load_steps=18 format=3 uid="uid://bcvo571un1qfc"]
 
 [ext_resource type="PackedScene" uid="uid://cjtngkldbp6i2" path="res://scenes/levels/level.tscn" id="1_4x7f5"]
 [ext_resource type="TileSet" uid="uid://bfdsiu08o5eji" path="res://scenes/objects/house.tres" id="2_7jm1o"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cq0px6epprr5o" path="res://scenes/objects/wall_light.tscn" id="7_cl71c"]
 [ext_resource type="PackedScene" uid="uid://crk6c7xbdanb4" path="res://scenes/objects/billboard.tscn" id="9_l70fy"]
 [ext_resource type="Texture2D" uid="uid://bw2y7slg8etbc" path="res://graphics/lights/overlays/hole.png" id="12_juwdk"]
+[ext_resource type="PackedScene" uid="uid://dfkik3iax21i0" path="res://scenes/items/item.tscn" id="16_ctgtm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gobrn"]
 size = Vector2(338, 342)
@@ -297,18 +298,21 @@ position = Vector2(-2044, -6347)
 scale = Vector2(10, 10)
 texture = ExtResource("12_juwdk")
 
-[node name="Player" parent="." index="4"]
-position = Vector2(838, -628)
-
-[node name="PointLight2D" type="PointLight2D" parent="Player" index="8"]
-texture = ExtResource("4_vvqdl")
-texture_scale = 3.0
-
 [node name="ExitGateArea" type="Area2D" parent="." index="5"]
 position = Vector2(970, -207)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
 position = Vector2(9, 9)
 shape = SubResource("RectangleShape2D_gobrn")
+
+[node name="Player" parent="." index="6"]
+position = Vector2(838, -628)
+
+[node name="PointLight2D" type="PointLight2D" parent="Player" index="8"]
+texture = ExtResource("4_vvqdl")
+texture_scale = 3.0
+
+[node name="Item" parent="." index="7" instance=ExtResource("16_ctgtm")]
+position = Vector2(400, -457)
 
 [connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]

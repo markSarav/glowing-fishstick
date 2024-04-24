@@ -16,8 +16,6 @@ var can_fire_grenade: bool = true
 @export var max_speed: int = 500
 var speed: int = max_speed
 
-
-
 func _process(_delta):
 	#get the input mapping from project settings assign them to a vector2 variable
 	var direction: Vector2 = Input.get_vector("left","right","up","down")
@@ -54,7 +52,6 @@ func _process(_delta):
 		grenade_timer.start()
 		grenade_fired.emit(pos.global_position,player_direction)
 		can_fire_grenade = false
-
 
 #off cooldown re-arms laser
 func _on_laser_timer_timeout():

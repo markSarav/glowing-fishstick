@@ -2,7 +2,7 @@ extends LevelParent
 
 func _on_gate_player_entered_body():
 	var tween = create_tween()
-	tween.tween_property($Player,"speed",0,.5)
+	tween.tween_property($Player,"speed",0,.6)
 	TransitionLayer.change_scene("res://scenes/levels/inside.tscn")
 
 func _on_gate_player_exited_body():
