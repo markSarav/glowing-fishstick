@@ -9,6 +9,7 @@
 radius = 124.0
 
 [node name="Toilet" instance=ExtResource("1_ybied")]
+scale = Vector2(0.8, 0.8)
 script = ExtResource("2_gu7a2")
 
 [node name="CollisionShape2D" parent="." index="0"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://chc4fs11tpsf4"]
+[gd_scene load_steps=18 format=3 uid="uid://chc4fs11tpsf4"]
 
 [ext_resource type="PackedScene" uid="uid://cjtngkldbp6i2" path="res://scenes/levels/level.tscn" id="1_we8py"]
 [ext_resource type="Texture2D" uid="uid://bcvl7fbkxnens" path="res://graphics/ground/stones.png" id="2_larmx"]
@@ -14,9 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bcr64hc3qckrm" path="res://scenes/objects/house.tscn" id="11_qyidi"]
 [ext_resource type="PackedScene" uid="uid://22ocyt5eiqx7" path="res://scenes/objects/light_fan_animation.tscn" id="12_01twt"]
 [ext_resource type="PackedScene" uid="uid://bk7qgl5sb8lcg" path="res://scenes/objects/gate.tscn" id="13_07jw0"]
-[ext_resource type="PackedScene" uid="uid://dfkik3iax21i0" path="res://scenes/items/item.tscn" id="15_a6kfi"]
-[ext_resource type="PackedScene" uid="uid://cfan1ldkx1fxb" path="res://scenes/objects/toilet.tscn" id="16_lxjv1"]
-[ext_resource type="PackedScene" uid="uid://c5lecs6r60ll2" path="res://scenes/objects/box.tscn" id="17_qc2gk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w742w"]
 texture = ExtResource("3_ry03a")
@@ -52,6 +49,10 @@ sources/1 = SubResource("TileSetAtlasSource_8oehi")
 
 [node name="outside" instance=ExtResource("1_we8py")]
 script = ExtResource("2_tglkk")
+
+[node name="Gate" parent="." index="1" instance=ExtResource("13_07jw0")]
+z_index = 1
+position = Vector2(0, -1056)
 
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
@@ -107,18 +108,10 @@ rotation = 3.14159
 [node name="LightFanAnimation" parent="Ground" index="11" instance=ExtResource("12_01twt")]
 position = Vector2(-552, 1904)
 
-[node name="Gate" parent="." index="1" instance=ExtResource("13_07jw0")]
-position = Vector2(0, -1056)
-
-[node name="Toilet" parent="." index="2" instance=ExtResource("16_lxjv1")]
-position = Vector2(330, 390)
-
-[node name="Box" parent="." index="3" instance=ExtResource("17_qc2gk")]
-position = Vector2(414, 804)
-rotation = 1.5708
-
-[node name="Item" parent="." index="8" instance=ExtResource("15_a6kfi")]
-position = Vector2(-400, 530)
+[node name="Player" parent="." index="7"]
+z_index = 2
 
 [connection signal="player_entered_body" from="Gate" to="." method="_on_gate_player_entered_body"]
 [connection signal="player_exited_body" from="Gate" to="." method="_on_gate_player_exited_body"]
+[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
+[connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
